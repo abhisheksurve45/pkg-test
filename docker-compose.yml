@@ -1,0 +1,10 @@
+---
+version: "3.2"
+services:
+  pkg-test:
+    network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pkg-test:latest
+    platform: linux/amd64
