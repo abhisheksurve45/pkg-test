@@ -14,11 +14,11 @@ RUN apk update && apk add --no-cache curl make gcc g++ binutils-gold linux-heade
 
 RUN npm install pkg -g
 
-RUN [ "pkg", "index.js", "--output test" ]
+RUN [ "pkg", "index.js", "--target node16-linux-x64", "--output /usr/src/app/test" ]
 
 FROM alpine
 RUN apk add --no-cache libstdc++ libgcc
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/
 COPY --from=build /usr/src/app/test test
 
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_x86_64 /usr/local/bin/dumb-init
