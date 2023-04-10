@@ -14,7 +14,7 @@ RUN apk update && apk add --no-cache curl make gcc g++ binutils-gold linux-heade
 
 RUN npm install pkg -g
 
-RUN [ "pkg", "index.js", "--target node16-linux-x64", "--output /usr/src/app/test" ]
+RUN [ "pkg", "src/index.js", "--target node16-linux-x64", "--output dist" ]
 
 FROM alpine
 RUN apk add --no-cache libstdc++ libgcc

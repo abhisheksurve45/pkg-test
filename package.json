@@ -1,14 +1,24 @@
 {
   "name": "pkg-test",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "pkg test",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "bin": {
+    "pkg-test": "src/index.js"
+  },
+  "pkg": {
+    "scripts": "src/**/*.js",
+    "assets": "views/**/*",
+    "targets": [ "node16-linux-x64" ],
+    "outputPath": "dist"
   }
 }
