@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM --platform=linux/amd64 node:16-alpine as build
 
 WORKDIR /usr/src/app
 
@@ -16,7 +16,8 @@ RUN npm install pkg -g
 
 RUN pkg src/index.js --targets node16-alpine-x64 -o pkg-test
 
-FROM alpine
+FROM --platform=linux/amd64 alpine
+
 RUN apk add --no-cache libstdc++ libgcc
 
 COPY --from=build /usr/src/app/pkg-test pkg-test
