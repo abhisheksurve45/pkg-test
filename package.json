@@ -10,15 +10,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pug": "^3.0.2"
   },
   "bin": {
     "pkg-test": "src/index.js"
   },
   "pkg": {
     "scripts": "src/**/*.js",
-    "assets": "views/**/*",
-    "targets": [ "node16-linux-x64" ],
+    "assets": [
+      "views/**/*",
+      "node_modules/**/*",
+      ".env"
+    ],
+    "targets": [
+      "node16-linux-x64"
+    ],
     "outputPath": "pkg-test"
   }
 }
